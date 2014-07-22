@@ -9,6 +9,12 @@
   font-style: normal;
   src: url("../fonts/icons.eot");
   src: url("../fonts/icons.eot?#iefix") format("embedded-opentype"), url("../fonts/icons.woff") format("woff"), url("../fonts/icons.ttf") format("truetype"), url("../fonts/icons.svg#icons") format("svg"); }
+@font-face {
+  font-family: icons;
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/FontSiteSans.eot");
+  src: url("../fonts/FontSiteSans.eot?#iefix") format("embedded-opentype"), url("../fonts/FontSiteSans.woff") format("woff"), url("../fonts/FontSiteSans.ttf") format("truetype"), url("../fonts/FontSiteSans.svg#icons") format("svg"); }
 /* Apply these base styles to all icons */
 .icon-ghost:before,
 .icon-feed:before,
@@ -43,7 +49,7 @@
   content: "\e004"; }
 
 body {
-  font-family: Open Sans, MundoSans, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "FontSiteSans", sans-serif;
   margin: 0;
   padding: 0;
   text-rendering: optimizeLegibility;
@@ -57,9 +63,9 @@ body {
 .logo-readium {
   position: fixed;
   left: 10px;
-  top: -100px;
-  width: 100px;
-  height: 100px;
+  top: -96px;
+  width: 96px;
+  height: 96px;
   overflow: hidden;
   z-index: 99;
   opacity: 0;
@@ -69,23 +75,23 @@ body {
   transition: all 0.5s ease-out; }
   @media only screen and (max-width: 800px) {
     .logo-readium {
-      top: -50px;
-      width: 50px;
-      height: 50px; } }
+      top: -48px;
+      width: 48px;
+      height: 48px; } }
   .logo-readium .logo {
     display: block;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100px;
-    height: 100px;
+    width: 96px;
+    height: 96px;
     background-image: url("/assets/img/readium-logo.png");
     background-size: cover;
     background-repeat: no-repeat; }
     @media only screen and (max-width: 800px) {
       .logo-readium .logo {
-        width: 50px;
-        height: 50px; } }
+        width: 32px;
+        height: 32px; } }
 
 .logo-readium.showing {
   left: 10px;
@@ -98,6 +104,7 @@ body {
   overflow: hidden;
   background-color: black; }
   .teaserimage .teaserimage-image {
+    background-image: url("/assets/img/crushed/header_sm.png");
     background-size: cover;
     background-position: center;
     position: absolute;
@@ -107,6 +114,9 @@ body {
     bottom: 0;
     z-index: 1;
     text-indent: -9999px; }
+    @media only screen and (max-width: 800px) {
+      .teaserimage .teaserimage-image {
+        background-image: url("/assets/img/crushed/header_mobile.png"); } }
 
 .blog-header {
   width: 100%;
@@ -119,14 +129,14 @@ body {
   box-sizing: border-box; }
   @media only screen and (max-width: 800px) {
     .blog-header {
-      padding: 0 50px; } }
+      padding: 0 16px; } }
   .blog-header .blog-logo {
-    width: 375px;
-    height: 375px;
+    width: 120px;
+    height: 120px;
     position: absolute;
-    top: -187.5px;
+    top: -60px;
     right: 50%;
-    margin-right: -187.5px;
+    margin-right: -60px;
     background-size: cover;
     border-radius: 50%;
     z-index: 99;
@@ -138,8 +148,8 @@ body {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3); }
   .blog-header .blog-title {
     margin: 0;
-    padding: 262.5px 50px 25px;
-    font-size: 50px;
+    padding: 84px 16px 8px;
+    font-size: 54px;
     text-align: center;
     font-weight: 700;
     letter-spacing: -2px;
@@ -149,14 +159,15 @@ body {
     color: #333333; }
   .blog-header .blog-description {
     margin: 0 0 20px;
-    padding: 0 100px;
-    font-size: 56.25px;
+    padding: 0 32px;
+    font-size: 20.25px;
     line-height: 1.5;
     color: #666666;
     text-align: center;
     font-weight: 400; }
   .blog-header .custom-links {
     margin: 0 0 50px;
+    margin-top: 1em;
     text-align: center;
     color: #cccccc; }
     .blog-header .custom-links a {
@@ -174,7 +185,7 @@ body {
   box-sizing: border-box; }
   @media only screen and (max-width: 800px) {
     .content {
-      padding: 0 100px; } }
+      padding: 0 32px; } }
   .content article {
     padding: 40px 0;
     border-bottom: 1px solid #f2f2f0; }
@@ -185,7 +196,7 @@ body {
       font-weight: 700;
       font-style: normal;
       display: block;
-      font-size: 28px;
+      font-size: 32.4px;
       line-height: 1.1;
       margin: 0 0; }
       .content article .post-title a {
@@ -195,13 +206,14 @@ body {
           text-decoration: none; }
     .content article .post-excerpt {
       letter-spacing: -0.02em;
+      font-family: "ff-tisa-web-pro", serif;
       font-weight: 300;
       font-style: normal;
-      font-size: 20px;
+      font-size: 18px;
       line-height: 1.3;
       color: #666665; }
     .content article .post-meta {
-      font-size: 14px;
+      font-size: 14.4px;
       color: #b3b3b1;
       line-height: 30px; }
       .content article .post-meta a {
@@ -222,7 +234,7 @@ body {
   padding: 16px 0; }
   .index-headline span {
     color: #b3b3b1;
-    font-size: 31.25px;
+    font-size: 11.25px;
     text-transform: uppercase;
     letter-spacing: 1px; }
 
@@ -231,8 +243,8 @@ body {
 
 .pagination {
   text-align: center;
-  padding: 150px 0 0;
-  font-size: 37.5px; }
+  padding: 48px 0 0;
+  font-size: 13.5px; }
   .pagination a {
     color: #999999;
     text-decoration: none; }
@@ -247,11 +259,11 @@ body {
   display: inline-block;
   white-space: nowrap;
   color: rgba(0, 0, 0, 0.25);
-  font-size: 14px;
+  font-size: 14.4px;
   letter-spacing: -0.02em;
   font-weight: 400;
   font-style: normal;
-  font-family: Open Sans, MundoSans, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "FontSiteSans", sans-serif;
   z-index: 999; }
 
 .tag-articleimage .post-reading {
@@ -260,13 +272,13 @@ body {
 
 .site-footer {
   margin: 0 auto;
-  padding: 150px 0;
+  padding: 48px 0;
   width: 100%;
   max-width: 640px;
-  font-size: 37.5px;
+  font-size: 13.5px;
   text-align: center;
   color: #999999;
-  line-height: 55.0px; }
+  line-height: 17.6px; }
   .site-footer a {
     color: #666666;
     text-decoration: none; }
@@ -293,23 +305,23 @@ body {
     z-index: 1; }
   .post .article-image .post-meta {
     position: absolute;
-    bottom: 250px;
+    bottom: 80px;
     left: 30%;
     right: 30%;
     z-index: 999;
-    font-family: Open Sans, MundoSans, "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-family: "FontSiteSans", sans-serif;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box; }
     @media only screen and (max-width: 800px) {
       .post .article-image .post-meta {
-        left: 50px;
-        right: 50px; } }
+        left: 16px;
+        right: 16px; } }
   .post .article-image .post-title {
     font-weight: 700;
     font-style: normal;
     letter-spacing: -0.04em;
-    font-size: 50px;
+    font-size: 54px;
     line-height: 1.1;
     color: white;
     margin-bottom: 16px;
@@ -333,9 +345,9 @@ body {
     font-weight: 400;
     font-style: normal;
     text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25), 0px 0px 1px rgba(0, 0, 0, 0.5);
-    font-size: 14px;
+    font-size: 16.2px;
     overflow: hidden;
-    font-family: Open Sans, MundoSans, "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-family: "FontSiteSans", sans-serif;
     white-space: nowrap;
     text-overflow: ellipsis; }
     .post .article-image .post-meta-text a {
@@ -343,7 +355,7 @@ body {
       .post .article-image .post-meta-text a:hover {
         color: white; }
   .post .article-image .fa-angle-down {
-    font-size: 32px;
+    font-size: 36px;
     margin: 64px auto 0;
     color: rgba(255, 255, 255, 0.75); }
     .post .article-image .fa-angle-down:hover {
@@ -351,13 +363,13 @@ body {
   .post .article-image .topofpage {
     text-decoration: underline; }
 .post .noarticleimage .post-meta {
-  font-family: Open Sans, MundoSans, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "FontSiteSans", sans-serif;
   padding-top: 60px; }
 .post .noarticleimage .post-title {
   font-weight: 700;
   font-style: normal;
   letter-spacing: -0.04em;
-  font-size: 50px;
+  font-size: 54px;
   line-height: 1.1;
   color: #333332;
   margin-bottom: 16px; }
@@ -379,39 +391,39 @@ body {
   letter-spacing: -0.02em;
   font-weight: 400;
   font-style: normal;
-  font-size: 14px;
+  font-size: 16.2px;
   overflow: hidden;
-  font-family: Open Sans, MundoSans, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: "FontSiteSans", sans-serif;
   white-space: nowrap;
   text-overflow: ellipsis; }
 .post .post-content {
   width: 100%;
-  font-family: Linux Libertine;
+  font-family: "ff-tisa-web-pro", serif;
   color: #333333; }
   .post .post-content h1, .post .post-content h2, .post .post-content h3 {
-    font-family: Open Sans, MundoSans, "Helvetica Neue", Arial, Helvetica, sans-serif; }
+    font-family: "FontSiteSans", sans-serif; }
   .post .post-content h3, .post .post-content h4, .post .post-content h5, .post .post-content h6 {
     letter-spacing: -0.02em;
     font-weight: 700;
     font-style: normal;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 1.3;
     margin: 0;
-    font-family: Open Sans, MundoSans, "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-family: "FontSiteSans", sans-serif;
     margin-bottom: 4px; }
   .post .post-content h2, .post .post-content h1 {
     letter-spacing: -0.02em;
     font-weight: 700;
     font-style: normal;
-    font-size: 32px;
+    font-size: 36px;
     line-height: 1.2;
     padding-top: 31px;
     margin-bottom: 4px; }
   .post .post-content p {
     font-weight: 400;
     font-style: normal;
-    font-size: 22px;
-    line-height: 30px;
+    font-size: 18px;
+    line-height: 1.8;
     margin: 0;
     padding-bottom: 30px;
     color: #333333;
@@ -430,7 +442,7 @@ body {
   .post .post-content figcaption {
     font-weight: 400;
     font-style: italic;
-    font-size: 16px;
+    font-size: 14.4px;
     line-height: 1.3;
     color: #666665;
     outline: 0;
@@ -493,14 +505,14 @@ body {
       margin-left: -26px;
       padding-bottom: 3px; }
   .post .post-content ul, .post .post-content ol {
-    padding: 0 0 30px;
+    padding: 0 0 0;
     margin: 0; }
     .post .post-content ul li, .post .post-content ol li {
       padding: 0;
       font-weight: 400;
       font-style: normal;
-      font-size: 23px;
-      line-height: 30px;
+      font-size: 17.6px;
+      line-height: 1.8;
       margin-left: 30px;
       margin-bottom: 12px;
       padding-top: 2px; }
@@ -510,7 +522,7 @@ body {
     list-style-type: decimal; }
 .post .bottom-teaser {
   padding: 50px 0;
-  font-family: Open Sans, MundoSans, "Helvetica Neue", Arial, Helvetica, sans-serif; }
+  font-family: "FontSiteSans", sans-serif; }
   .post .bottom-teaser hr {
     border: 0;
     padding: 0;
@@ -528,7 +540,7 @@ body {
     @media only screen and (max-width: 800px) {
       .post .bottom-teaser .isLeft {
         width: 100%;
-        padding-bottom: 100px; } }
+        padding-bottom: 32px; } }
     .post .bottom-teaser .isLeft .index-headline {
       padding-bottom: 32px; }
     .post .bottom-teaser .isLeft .author-image {
@@ -540,14 +552,14 @@ body {
       border-radius: 100%;
       text-indent: -9999px; }
     .post .bottom-teaser .isLeft h4 {
-      font-size: 18px;
+      font-size: 21.6px;
       line-height: 1.1;
       font-weight: 700;
       padding: 0;
       margin: 0;
       padding-left: 100px; }
     .post .bottom-teaser .isLeft p {
-      font-size: 14px;
+      font-size: 16.2px;
       line-height: 1.3;
       font-weight: 400;
       padding: 0;
@@ -571,7 +583,7 @@ body {
       padding: 0;
       color: #333333;
       text-align: left;
-      font-size: 14px;
+      font-size: 16.2px;
       line-height: 1.3;
       color: #999999; }
       .post .bottom-teaser .isRight .site-footer a {
@@ -610,7 +622,11 @@ body {
     text-indent: -9999px;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center; }
+    background-position: center;
+    background-image: url("/assets/img/crushed/footer_sm.png"); }
+    @media only screen and (max-width: 800px) {
+      .bottom-closer .background-closer-image {
+        background-image: url("/assets/img/crushed/footer_mobile.png"); } }
   .bottom-closer .inner {
     width: 100%;
     position: relative;
@@ -622,7 +638,7 @@ body {
     .bottom-closer .inner .blog-title {
       margin: 0;
       padding: 0 0 10px;
-      font-size: 50px;
+      font-size: 54px;
       text-align: center;
       font-weight: 700;
       letter-spacing: -2px;
@@ -633,8 +649,8 @@ body {
       text-shadow: 0px 1px 16px rgba(0, 0, 0, 0.5), 0px 0px 1px rgba(0, 0, 0, 0.5); }
     .bottom-closer .inner .blog-description {
       margin: 0 0 50px;
-      padding: 0 100px;
-      font-size: 56.25px;
+      padding: 0 32px;
+      font-size: 20.25px;
       line-height: 1.5;
       color: white;
       text-align: center;
@@ -646,7 +662,7 @@ body {
       display: inline-block;
       text-align: center;
       letter-spacing: -0.02em;
-      font-size: 15px;
+      font-size: 16.2px;
       font-weight: 400;
       font-style: normal;
       text-decoration: none;
@@ -658,4 +674,5 @@ body {
       box-sizing: border-box;
       border-radius: 999em;
       line-height: 44px;
-      padding: 0 18px; }
+      padding: 0 18px;
+      bottom: 22px; }
