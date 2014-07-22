@@ -47,7 +47,11 @@
                     });
             
                     var $window = $(window),
-                        $image = $('.post-image-image');
+                        $image = $('.post-image-image'),
+                        $logo_image = $('.logo-readium');
+                    $logo_image.addClass('showing'); 
+                    var logo_showing = $logo_image.hasClass('showing');
+                    var closer_height = $('.bottom-closer').height();
                     $window.on('scroll', function() {
                         var top = $window.scrollTop();
             
@@ -55,6 +59,19 @@
                         $image
                             .css('transform', 'translate3d(0px, '+top/3+'px, 0px)')
                             .css('opacity', 1-Math.max(top/700, 0));
+                    /******  ADDED - LES *********/                
+                        if (document.documentElement.clientHeight + $(document).scrollTop() >= document.body.offsetHeight - closer_height) {
+                            if(logo_showing){
+                                $logo_image.removeClass('showing');
+                                logo_showing = false;
+                            }
+                        } else {
+                            if(!logo_showing){ 
+                                $logo_image.addClass('showing');
+                                logo_showing = true;
+                            }
+                        }
+                        /*****************************/  
                     });
                     $window.trigger('scroll');
                     
@@ -99,7 +116,37 @@
         <br>
         <br>
         <br>
-        
+        <script>
+            (function ($) {
+                "use strict";        
+                $(document).ready(function(){
+                    var $window = $(window),
+                    $image = $('.teaserimage-image'),
+                    $logo_image = $('.logo-readium');
+                    var logo_showing = $logo_image.hasClass('showing');
+                    var closer_height = $('.bottom-closer').height();
+                    $window.on('scroll', function() {
+                        if (top < 0 || top > 1500) { return; }
+                        
+        /******  ADDED - LES *********/                
+                        if (document.documentElement.clientHeight + 
+    $(document).scrollTop() >= document.body.offsetHeight - closer_height) {
+                            if(logo_showing){
+                                $logo_image.removeClass('showing');
+                                logo_showing = false;
+                            }
+                        } else {
+                            if(!logo_showing){ 
+                                $logo_image.addClass('showing');
+                                logo_showing = true;
+                            }
+                        }
+        /*****************************/  
+                });
+                $window.trigger('scroll');
+                });
+            }(jQuery));
+        </script>
         {{/has}}
         
 
