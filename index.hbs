@@ -34,48 +34,50 @@
         "use strict";
     
         $(document).ready(function(){
-    
-            var $window = $(window),
-                $image = $('.teaserimage-image'),
-                $logo_image = $('.logo-readium'),
-                $blog_logo = $('.teaser-overlay .blog-logo'),
-                $blog_title = $('.teaser-overlay .blog-title'),
-                $blog_desc = $('.teaser-overlay .blog-description');
-            var logo_showing = $logo_image.hasClass('showing');
-            $window.on('scroll', function() {
-                var top = $window.scrollTop();
-    
-                if (top < 0 || top > 1500) { return; }
-                $image
-                    .css('transform', 'translate3d(0px, '+top/4+'px, 0px)')
-                    .css('opacity', 1-Math.max(top/700, 0));
-                $blog_logo
-                    .css('transform', 'translate3d(0px, '+top/2+'px, 0px)')
-                    .css('opacity', 1-Math.max(top/800, 0));
-                    // .css('margin-top', (1-Math.max(top/200, 0))*72)+'px'; 
-                $blog_title
-                    .css('transform', 'translate3d(0px, '+top/3+'px, 0px)')
-                    .css('opacity', 1-Math.max(top/500, 0));
-                    // .css('padding-top', (1-Math.max(top/200, 0))*64+'px');
-                $blog_desc
-                    .css('transform', 'translate3d(0px, '+top/3.5+'px, 0px)')
-                    .css('opacity', 1-Math.max(top/400, 0))
-                    .css('margin-bottom', (1-Math.max(top/200, 0))*20+'px');
-/******  ADDED - LES *********/                
-                if (top > 450) {
-                    if(!logo_showing){
-                        $logo_image.addClass('showing');
-                        logo_showing = true;
+            var devicewidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+            if(devicewidth > 568){
+                var $window = $(window),
+                    $image = $('.teaserimage-image'),
+                    $logo_image = $('.logo-readium'),
+                    $blog_logo = $('.teaser-overlay .blog-logo'),
+                    $blog_title = $('.teaser-overlay .blog-title'),
+                    $blog_desc = $('.teaser-overlay .blog-description');
+                var logo_showing = $logo_image.hasClass('showing');
+                $window.on('scroll', function() {
+                    var top = $window.scrollTop();
+        
+                    if (top < 0 || top > 1500) { return; }
+                    $image
+                        .css('transform', 'translate3d(0px, '+top/4+'px, 0px)')
+                        .css('opacity', 1-Math.max(top/700, 0));
+                    $blog_logo
+                        .css('transform', 'translate3d(0px, '+top/2+'px, 0px)')
+                        .css('opacity', 1-Math.max(top/800, 0));
+                        // .css('margin-top', (1-Math.max(top/200, 0))*72)+'px'; 
+                    $blog_title
+                        .css('transform', 'translate3d(0px, '+top/3+'px, 0px)')
+                        .css('opacity', 1-Math.max(top/500, 0));
+                        // .css('padding-top', (1-Math.max(top/200, 0))*64+'px');
+                    $blog_desc
+                        .css('transform', 'translate3d(0px, '+top/3.5+'px, 0px)')
+                        .css('opacity', 1-Math.max(top/400, 0))
+                        .css('margin-bottom', (1-Math.max(top/200, 0))*20+'px');
+    /******  ADDED - LES *********/                
+                    if (top > 450) {
+                        if(!logo_showing){
+                            $logo_image.addClass('showing');
+                            logo_showing = true;
+                        }
+                    } else {
+                        if(logo_showing){ 
+                            $logo_image.removeClass('showing');
+                            logo_showing = false;
+                        }
                     }
-                } else {
-                    if(logo_showing){ 
-                        $logo_image.removeClass('showing');
-                        logo_showing = false;
-                    }
-                }
-/*****************************/  
-            });
-            $window.trigger('scroll');
+    /*****************************/  
+                });
+                $window.trigger('scroll');
+            }
     
         });
     

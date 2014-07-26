@@ -66,7 +66,7 @@ body {
   -webkit-transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
   -o-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out; }
+  transition: all 0.5s ease-in-out; }
   @media only screen and (max-width: 800px) {
     .logo-readium {
       top: -80px;
@@ -77,16 +77,13 @@ body {
       top: -64px;
       width: 64px;
       height: 64px; } }
-  @media only screen and (max-width: 568px) {
+  @media only screen and (max-width: 320px) {
     .logo-readium {
       top: -48px;
-      width: 48px;
-      height: 48px; } }
-  @media only screen and (max-width: 480px) {
-    .logo-readium {
-      top: -48px;
-      width: 48px;
-      height: 48px; } }
+      left: 0px;
+      display: block;
+      width: 100%;
+      height: 64px; } }
   .logo-readium .logo {
     display: block;
     position: absolute;
@@ -95,8 +92,9 @@ body {
     width: 96px;
     height: 96px;
     background-image: url("/assets/img/readium-logo.png");
-    background-size: cover;
-    background-repeat: no-repeat; }
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.5s ease-in-out; }
     @media only screen and (max-width: 800px) {
       .logo-readium .logo {
         width: 80px;
@@ -118,12 +116,30 @@ body {
   left: 10px;
   top: 10px;
   opacity: 0.95; }
+  @media only screen and (max-width: 320px) {
+    .logo-readium.showing {
+      top: 20px;
+      left: 0px;
+      display: block;
+      width: 100%;
+      height: 64px;
+      position: absolute; }
+      .logo-readium.showing .logo {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: block;
+        width: 100%;
+        height: 64px; } }
 
 .teaserimage {
   height: 450px;
   position: relative;
   overflow: hidden;
   background-color: black; }
+  @media only screen and (max-width: 568px) {
+    .teaserimage {
+      height: 225px; } }
   .teaserimage .teaserimage-image {
     background-image: url("/assets/img/crushed/header_sm_blank.png");
     background-size: cover;
@@ -153,6 +169,13 @@ body {
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
     background-image: url("/assets/img/crushed/initials_cutout_vintage.png"); }
+    @media only screen and (max-width: 568px) {
+      .teaserimage .blog-logo {
+        width: 72px;
+        height: 72px; } }
+    @media only screen and (max-width: 568px) {
+      .teaserimage .blog-logo {
+        margin: 36px auto 0 auto; } }
     @media only screen and (max-width: 800px) {
       .teaserimage .blog-logo {
         background-image: url("/assets/img/crushed/initials_cutout_vintage.png"); } }
@@ -171,6 +194,10 @@ body {
     word-break: break-word;
     color: white;
     text-shadow: 1px 2px 2px black; }
+    @media only screen and (max-width: 568px) {
+      .teaserimage .blog-title {
+        font-size: 24.3px;
+        padding: 24px 16px 8px; } }
   .teaserimage .blog-description {
     position: relative;
     z-index: 99;
@@ -183,6 +210,10 @@ body {
     text-align: center;
     font-weight: 100;
     text-shadow: 1px 1px 1px black; }
+    @media only screen and (max-width: 568px) {
+      .teaserimage .blog-description {
+        font-size: 12.6px;
+        padding: 0 11.2px; } }
 
 .blog-header {
   width: 100%;
@@ -412,6 +443,9 @@ body {
     color: white;
     margin-bottom: 16px;
     text-shadow: 0px 1px 16px rgba(0, 0, 0, 0.5), 0px 0px 1px rgba(0, 0, 0, 0.5); }
+    @media only screen and (max-width: 568px) {
+      .post .article-image .post-title {
+        font-size: 36px; } }
   .post .article-image .author-image {
     display: inline-block;
     width: 30px;
@@ -436,6 +470,9 @@ body {
     font-family: "FontSiteSans", sans-serif;
     white-space: nowrap;
     text-overflow: ellipsis; }
+    @media only screen and (max-width: 568px) {
+      .post .article-image .post-meta-text {
+        font-size: 12.6px; } }
     .post .article-image .post-meta-text a {
       color: rgba(255, 255, 255, 0.75); }
       .post .article-image .post-meta-text a:hover {
@@ -459,6 +496,9 @@ body {
   line-height: 1.61803;
   color: #333332;
   margin-bottom: 16px; }
+  @media only screen and (max-width: 568px) {
+    .post .noarticleimage .post-title {
+      font-size: 36px; } }
 .post .noarticleimage .author-image {
   display: inline-block;
   width: 30px;
@@ -482,6 +522,9 @@ body {
   font-family: "FontSiteSans", sans-serif;
   white-space: nowrap;
   text-overflow: ellipsis; }
+  @media only screen and (max-width: 568px) {
+    .post .noarticleimage .post-meta-text {
+      font-size: 12.6px; } }
 .post .post-content {
   width: 100%;
   font-family: "ff-tisa-web-pro", serif;
@@ -711,30 +754,67 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url("/assets/img/crushed/footer_sm.png"); }
+    background-image: url("/assets/img/crushed/header_sm_blank.png"); }
     @media only screen and (max-width: 800px) {
       .bottom-closer .background-closer-image {
-        background-image: url("/assets/img/crushed/footer_mobile.png"); } }
+        background-image: url("/assets/img/crushed/header_mobile_blank.png"); } }
   .bottom-closer .inner {
     width: 100%;
     position: relative;
     z-index: 99;
     max-width: 640px;
-    padding: 170px 0 40px;
+    padding: 110px 0 40px;
     text-align: center;
     margin: 0 auto; }
+    @media only screen and (max-width: 568px) {
+      .bottom-closer .inner {
+        padding: 55px 0 40px; } }
+    .bottom-closer .inner .blog-logo {
+      width: 96px;
+      height: 96px;
+      display: inline-block;
+      position: relative;
+      margin: 0 auto 0 auto;
+      background-size: cover;
+      border-radius: 50%;
+      z-index: 99;
+      text-indent: -9999px;
+      vertical-align: middle;
+      border: 1px solid white;
+      -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+      background-image: url("/assets/img/crushed/initials_cutout_vintage.png"); }
+      @media only screen and (max-width: 568px) {
+        .bottom-closer .inner .blog-logo {
+          width: 72px;
+          height: 72px; } }
+      @media only screen and (max-width: 568px) {
+        .bottom-closer .inner .blog-logo {
+          margin: 0 auto 0 auto; } }
+      @media only screen and (max-width: 800px) {
+        .bottom-closer .inner .blog-logo {
+          background-image: url("/assets/img/crushed/initials_cutout_vintage.png"); } }
     .bottom-closer .inner .blog-title {
-      margin: 0;
-      padding: 0 0 10px;
-      font-size: 54px;
+      padding: 0 0 10px 0.5em;
       text-align: center;
-      font-weight: 700;
+      position: relative;
+      z-index: 99;
+      font-family: "ff-tisa-web-pro", serif;
+      margin: 0;
+      font-size: 32.4px;
+      font-weight: 900;
       letter-spacing: -2px;
+      vertical-align: middle;
       outline: 0;
-      line-height: 50px;
+      line-height: 1.61;
       word-break: break-word;
       color: white;
-      text-shadow: 0px 1px 16px rgba(0, 0, 0, 0.5), 0px 0px 1px rgba(0, 0, 0, 0.5); }
+      text-shadow: 1px 2px 2px black;
+      display: inline; }
+      @media only screen and (max-width: 568px) {
+        .bottom-closer .inner .blog-title {
+          font-size: 19.8px; } }
     .bottom-closer .inner .blog-description {
       margin: 0 0 50px;
       padding: 0 32px;
@@ -748,6 +828,7 @@ body {
       margin: 0 0 50px; }
     .bottom-closer .inner .btn {
       display: inline-block;
+      margin-top: 16px;
       text-align: center;
       letter-spacing: -0.02em;
       font-size: 16.2px;
@@ -763,3 +844,8 @@ body {
       border-radius: 999em;
       line-height: 44px;
       padding: 0 18px; }
+      @media only screen and (max-width: 568px) {
+        .bottom-closer .inner .btn {
+          font-size: 14.4px;
+          line-height: 34px;
+          height: 34px; } }

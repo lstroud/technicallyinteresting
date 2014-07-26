@@ -45,35 +45,37 @@
             
                         img.remove();
                     });
-            
-                    var $window = $(window),
-                        $image = $('.post-image-image'),
-                        $logo_image = $('.logo-readium');
-                    $logo_image.addClass('showing'); 
-                    var logo_showing = $logo_image.hasClass('showing');
-                    var closer_height = $('.bottom-closer').height();
-                    $window.on('scroll', function() {
-                        var top = $window.scrollTop();
-            
-                        if (top < 0 || top > 1500) { return; }
-                        $image
-                            .css('transform', 'translate3d(0px, '+top/3+'px, 0px)')
-                            .css('opacity', 1-Math.max(top/700, 0));
-                    /******  ADDED - LES *********/                
-                        if (document.documentElement.clientHeight + $(document).scrollTop() >= document.body.offsetHeight - closer_height) {
-                            if(logo_showing){
-                                $logo_image.removeClass('showing');
-                                logo_showing = false;
+                    var devicewidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+                    if(devicewidth > 568){
+                        var $window = $(window),
+                            $image = $('.post-image-image'),
+                            $logo_image = $('.logo-readium');
+                        $logo_image.addClass('showing'); 
+                        var logo_showing = $logo_image.hasClass('showing');
+                        var closer_height = $('.bottom-closer').height();
+                        $window.on('scroll', function() {
+                            var top = $window.scrollTop();
+                
+                            if (top < 0 || top > 1500) { return; }
+                            $image
+                                .css('transform', 'translate3d(0px, '+top/3+'px, 0px)')
+                                .css('opacity', 1-Math.max(top/700, 0));
+                        /******  ADDED - LES *********/                
+                            if (document.documentElement.clientHeight + $(document).scrollTop() >= document.body.offsetHeight - closer_height) {
+                                if(logo_showing){
+                                    $logo_image.removeClass('showing');
+                                    logo_showing = false;
+                                }
+                            } else {
+                                if(!logo_showing){ 
+                                    $logo_image.addClass('showing');
+                                    logo_showing = true;
+                                }
                             }
-                        } else {
-                            if(!logo_showing){ 
-                                $logo_image.addClass('showing');
-                                logo_showing = true;
-                            }
-                        }
-                        /*****************************/  
-                    });
-                    $window.trigger('scroll');
+                            /*****************************/  
+                        });
+                        $window.trigger('scroll');
+                    }
                     
                     var height = $('.article-image').height();
                         $('.post-content').css('padding-top', height + 'px');
@@ -120,30 +122,35 @@
             (function ($) {
                 "use strict";        
                 $(document).ready(function(){
-                    var $window = $(window),
-                    $image = $('.teaserimage-image'),
-                    $logo_image = $('.logo-readium');
-                    var logo_showing = $logo_image.hasClass('showing');
-                    var closer_height = $('.bottom-closer').height();
-                    $window.on('scroll', function() {
-                        if (top < 0 || top > 1500) { return; }
-                        
-        /******  ADDED - LES *********/                
-                        if (document.documentElement.clientHeight + 
-    $(document).scrollTop() >= document.body.offsetHeight - closer_height) {
-                            if(logo_showing){
-                                $logo_image.removeClass('showing');
-                                logo_showing = false;
+                    var devicewidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+                    if(devicewidth > 568){
+                        var $window = $(window),
+                        $image = $('.teaserimage-image'),
+                        $logo_image = $('.logo-readium');
+                        var logo_showing = $logo_image.hasClass('showing');
+                        var closer_height = $('.bottom-closer').height();
+                        $window.on('scroll', function() {
+                            if (top < 0 || top > 1500) { return; }
+                            
+            /******  ADDED - LES *********/                
+                            if (document.documentElement.clientHeight + 
+        $(document).scrollTop() >= document.body.offsetHeight - closer_height) {
+                                if(logo_showing){
+                                    $logo_image.removeClass('showing');
+                                    logo_showing = false;
+                                }
+                            } else {
+                                if(!logo_showing){ 
+                                    $logo_image.addClass('showing');
+                                    logo_showing = true;
+                                }
                             }
-                        } else {
-                            if(!logo_showing){ 
-                                $logo_image.addClass('showing');
-                                logo_showing = true;
-                            }
-                        }
-        /*****************************/  
-                });
-                $window.trigger('scroll');
+            /*****************************/  
+                        });
+                        $window.trigger('scroll');
+                    } else {
+                        $('.logo-readium').addClass('showing');
+                    }
                 });
             }(jQuery));
         </script>
@@ -211,6 +218,8 @@
         Image
     </div>
     <div class="inner">
+        <a class="blog-logo" href="{{@blog.url}}">{{@blog.title}}</a>
+        <h1 class="blog-title">{{@blog.title}}</h1> <br/>
         <a href="/" class="btn">Back to Overview</a>
     </div>
 </div>
